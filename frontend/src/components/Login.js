@@ -50,7 +50,7 @@ const Login = ({ setName = () => {} }) => {
                                         </div>
                                         <form className="user" onSubmit={submit}>
                                             <div className="form-group">
-                                                <input type="text" className="form-control form-control-user" placeholder="Email" required
+                                                <input type="email" className="form-control form-control-user" placeholder="Email" required
                                                     onChange={e => setEmail(e.target.value)}
                                                 />
                                             </div>

@@ -19,7 +19,7 @@ import Error from './components/error';
 import './App.css';
 
 function App() {
-  const [name, setName] = useState()
+  const [name, setName] = useState('')
   useState( () => {
     (
       async () => {

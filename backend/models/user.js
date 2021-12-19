@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+const { Schema, model } = require('mongoose')
 
-const userSchema = new mongoose.Schema({
+const userSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -13,8 +13,23 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    reservas:[{
+        type:Schema.Types.ObjectId,
+        ref: 'Reserva'
+    }]
 })
 
-module.exports = mongoose.model('User',userSchema)
+userSchema.set('toJSON', {
+    transform: (document, returnedObject) => {
+      returnedObject.id = returnedObject._id
+      delete returnedObject._id
+      delete returnedObject.__v
+  
+      delete returnedObject.passwordHash
+    }
+  })
 
+const User = model('User', userSchema)
+
+module.exports = User

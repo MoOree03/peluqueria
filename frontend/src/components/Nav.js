@@ -38,8 +38,7 @@ const Nav = ({name,setName=()=>{}}) => {
                 </li>
             </ul>
         )
-    }
-    if (typeof name !== 'undefined') {
+    } else {
         menu = (
             <ul className="navbar-nav ml-auto ">
 
