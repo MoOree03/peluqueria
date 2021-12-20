@@ -5,7 +5,7 @@ const routes = require('./routes/routes')
 const cookieParser = require('cookie-parser')
 
 //DataBase conection
-mongoose.connect('mongodb://localhost/node_auth', () => {
+mongoose.connect('mongodb://localhost/peluqueriaDB', () => {
     console.log("DB is connected")
 })
 
@@ -23,6 +23,6 @@ app.use(express.json())
 
 app.use('/api', routes)
 
-app.listen(4000, () => {
-    console.log("Server is listen in port 4000")
+app.listen(5000, () => {
+    console.log("Server is listen in port 5000")
 })

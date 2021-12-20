@@ -18,17 +18,11 @@ const userSchema = new Schema({
         type:Schema.Types.ObjectId,
         ref: 'Reserva'
     }]
+},{
+    timestamps:true,
+    versionKey:false,
 })
 
-userSchema.set('toJSON', {
-    transform: (document, returnedObject) => {
-      returnedObject.id = returnedObject._id
-      delete returnedObject._id
-      delete returnedObject.__v
-  
-      delete returnedObject.passwordHash
-    }
-  })
 
 const User = model('User', userSchema)
 

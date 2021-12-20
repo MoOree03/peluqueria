@@ -2,7 +2,7 @@ const router = require('express').Router()
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-
+const Reserva = require('../models/Reserva')
 
 router.post('/register', async (req, res) => {
     const salt = await bcrypt.genSalt(10)
@@ -16,6 +16,8 @@ router.post('/register', async (req, res) => {
     const { password, ...data } = await result.toJSON()
     res.send(data)
 })
+
+
 
 router.post('/login', async (req, res) => {
     const user = await User.findOne({ email: req.body.email })
@@ -61,5 +63,42 @@ router.post('/logout', (req, res) => {
     })
     res.send({ message: 'success' })
 })
+
+//  Reservas
+
+router.post('/createReser', async (req,res) => {
+    try {
+        const reserva = new Reserva({
+            date: req.body.date,
+            hora: req.body.hora,
+            servicio: req.body.servicio,
+            usuario: req.body.usuario,
+            estado: req.body.estado
+        })
+        const result = await reserva.save()
+        res.send(result)
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+router.delete("/:id",async(req,res)=>{
+    const { id } = req.params;
+
+    await Reserva.findByIdAndDelete(id);
+  
+    // code 200 is ok too
+    res.status(204).json();
+})
+
+router.get("/reservas", async (req,res) => {
+    try {
+        const reservations = await Reserva.find().lean();
+        res.send(reservations)
+    } catch (error) {
+        console.log({ error });
+    }
+})
+
 
 module.exports = router;

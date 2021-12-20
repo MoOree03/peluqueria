@@ -83,7 +83,7 @@ const admin = () => {
                                         placeholder="Trabajo" />
                                 </div>
                                 <div className="col-2">
-                                    <button type="button" class="btn btn-success">Agregar</button>
+                                    <button type="button" className="btn btn-success">Agregar</button>
                                 </div>
                             </div>
                         </form>

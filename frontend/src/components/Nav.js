@@ -4,7 +4,7 @@ import React from 'react'
 const Nav = ({name,setName=()=>{}}) => {
 
     const logout = async () => {
-        await fetch('http://localhost:4000/api/logout', {
+        await fetch('http://localhost:5000/api/logout', {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',

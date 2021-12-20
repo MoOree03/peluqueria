@@ -1,22 +1,33 @@
 const { Schema, model } = require('mongoose')
 
 const reservaSchema = new Schema({
-  servicio: String,
-  date: Date,
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
-  }
+    date: {
+        type: String,
+        required: true
+    },
+    hora: {
+        type: String,
+        required: true
+    },
+    servicio: {
+        type: String,
+        required: true
+    },
+    usuario: {
+      type: String,
+      required: true
+  },
+  estado: {
+    type: String,
+    required: true
+},
+    
+},{
+    timestamps:true,
+    versionKey:false,
 })
 
-noteSchema.set('toJSON', {
-  transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id
-    delete returnedObject._id
-    delete returnedObject.__v
-  }
-})
 
-const Note = model('Reserva', reservaSchema)
+const Reserva = model('Reserva', reservaSchema)
 
-module.exports = Note
+module.exports = Reserva
