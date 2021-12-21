@@ -43,7 +43,7 @@ function App() {
         <Route exact path="/" element={<Inicio name={name} />} />
         <Route path="/registro" element={<Registro />} />
         <Route path="/admin" element={<Admin />} />
-        <Route path="/servicios" element={<Servicios />} />
+        <Route path="/servicios/:id" element={<Servicios />} />
         <Route path="/servicio" element={<Servicio />} />
         <Route path="/agenda" element={<Agenda />} />
         <Route path="/gestionReservas" element={<Gestionreservas />} />

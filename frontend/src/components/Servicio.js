@@ -5,7 +5,7 @@ const Servicio = () => {
     return (
         <div id="wrapper">
             <div id="content-wrapper" className="d-flex flex-column">
-                <div className="container mb-5" style={{ height: "100%" }} >
+                <div className="container my-5" style={{ height: "100%" }} >
 
                     <div className="card text-center">
                         <div className="card-header">

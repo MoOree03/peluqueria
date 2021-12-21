@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Formik, Form, Field } from "formik";
 import axios from "axios";
-import { Navigate } from "react-router";
 
 const baseUrl = "http://localhost:5000/api/login";
 
