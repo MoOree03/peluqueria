@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import MaterialTable from 'material-table'
 
 import Login from "./components/Login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -20,7 +21,6 @@ import "./App.css";
 
 function App() {
   const [name, setName] = useState("");
-  const [reserva, setReserva] = useState("")
   useEffect(() => {
     (async () => {
       const response = await fetch("http://localhost:5000/api/user", {
@@ -32,6 +32,7 @@ function App() {
       setName(content.name);
     })();
   });
+
 
   return (
     <Router>
@@ -46,7 +47,7 @@ function App() {
         <Route path="/servicio" element={<Servicio />} />
         <Route path="/agenda" element={<Agenda />} />
         <Route path="/gestionReservas" element={<Gestionreservas />} />
-        <Route path="/reporte" element={<Reporte reserva={reserva} />} />
+        <Route path="/reporte" element={<Reporte  />} />
       </Routes>
       <Footer />
     </Router>
